@@ -70,3 +70,6 @@ while True:
 			removeComments(file)	
 	else:
 		print("File does not exist")	
+	go = input("Press Y to continue or anything else to exit:")
+	if not go =='Y':
+		break 	
