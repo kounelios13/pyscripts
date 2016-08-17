@@ -1,0 +1,18 @@
+Here is a text file with 
+
+
+
+many empty lines
+
+# yeap another useless line
+
+and many comments
+//What is this line for 
+/**
+* Seriously no idea
+* */
+
+another line
+
+
+with spaces
