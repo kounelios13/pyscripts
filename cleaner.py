@@ -1,5 +1,8 @@
 import os
-output = open("clearOutput.txt",'w')
+null = None
+true = True
+false = False
+defFile = open("cleaner.py",'r')
 def checkfeed():
 	temp = [f+"\n" for f in os.listdir('.') if os.path.isfile(f)]
 	try:
@@ -18,12 +21,11 @@ def removeEmptyLines(fileName):
 	lines = file.readlines()
 	file.close()
 	file = open(fileName,'w')
-	for l in lines:
-		if len(l.strip())>0:
-			file.write(l)
+	file.writelines([l for l in lines if len(l.strip()) > 0])		
 	file.close()		
-
 def removeComments(fileName):
+	lines = []
+	output = open("cleaner.py","r")
 	def isComment(line):
 		comments=["*","//","// ","*/","* ","/*","/**","#"," #"]
 		ending=[" */","*/","**/","#"," #"]
@@ -34,8 +36,14 @@ def removeComments(fileName):
 			if line.endswith(i):
 				return True 	
 		return False				
-	lines = open(fileName,'r').readlines()
+	try:
+		lines = open(fileName,'r').readlines()
+	except FileNotFoundError:
+		print("{} does not exist".format(fileName))
+		output.close()
+		return
+	output = open("clearOutput.txt",'w')	
 	for line in lines:
 		if not isComment(line.strip()) and len(line.strip())>0:
 			output.write(line)
-removeComments("sample.txt")
+shrinkFiles()
