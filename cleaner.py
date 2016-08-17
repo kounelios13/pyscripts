@@ -46,4 +46,27 @@ def removeComments(fileName):
 	for line in lines:
 		if not isComment(line.strip()) and len(line.strip())>0:
 			output.write(line)
-shrinkFiles()
+def evalFile(name):
+	try:
+		file = open(name,'r')
+	except FileNotFoundError:
+		return False
+	return True		
+def showMenu():
+	os.system('clear')
+	os.system('cls')
+	info = "What you want to do?\n"
+	info+=" 1:Remove empty lines from file\n"
+	info+=" 2:Remove comments from file\n"
+	print(info)
+while True:
+	showMenu()
+	fn = int(input("Choose a number:"))	
+	file = input("Enter path of file(rel or absolute) followed by its name.\nE.g.: ../demo.txt\n")	
+	if evalFile(file):
+		if fn is 1:
+			removeEmptyLines(file)
+		elif fn is 2:
+			removeComments(file)	
+	else:
+		print("File does not exist")	
