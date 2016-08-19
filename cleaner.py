@@ -16,6 +16,16 @@ def shrinkFiles():
 	files = [file.strip() for file in open('feed.txt','r').readlines()]	
 	for file in files:
 		removeEmptyLines(file)
+def isComment(line):
+	comments=["*","//","// ","*/","* ","/*","/**","#"," #"]
+	ending=[" */","*/","**/","#"," #"]
+	for i in comments:
+		if line.find(i) != -1:
+			return True 
+	for i in ending:
+		if line.find(i)!= -1:
+			return True 	
+	return False
 def removeEmptyLines(fileName):
 	file = open(fileName,'r')
 	lines = file.readlines()
@@ -26,26 +36,19 @@ def removeEmptyLines(fileName):
 def removeComments(fileName):
 	lines = []
 	output = open("cleaner.py","r")
-	def isComment(line):
-		comments=["*","//","// ","*/","* ","/*","/**","#"," #"]
-		ending=[" */","*/","**/","#"," #"]
-		for i in comments:
-			if line.startswith(i):
-				return True 
-		for i in ending:
-			if line.endswith(i):
-				return True 	
-		return False				
+					
 	try:
 		lines = open(fileName,'r').readlines()
 	except FileNotFoundError:
 		print("{} does not exist".format(fileName))
 		output.close()
 		return
-	output = open("clearOutput.txt",'w')	
-	for line in lines:
-		if not isComment(line.strip()) and len(line.strip())>0:
-			output.write(line)
+	output = open(fileName,'w')	
+	output.writelines([line for line in lines if len(line.strip())> 0 and not isComment(line.strip())])
+
+def getSourceCodeLines(file):
+	return len([l for l in open(file,'r').readlines() if not isComment(l.strip()) and len(l.strip())> 0])	
+
 def evalFile(name):
 	try:
 		file = open(name,'r')
@@ -58,6 +61,7 @@ def showMenu():
 	info = "What you want to do?\n"
 	info+=" 1:Remove empty lines from file\n"
 	info+=" 2:Remove comments from file\n"
+	info+=" 3:Show number of source code lines(comments do not count)\n"
 	print(info)
 while True:
 	showMenu()
@@ -68,6 +72,8 @@ while True:
 			removeEmptyLines(file)
 		elif fn is 2:
 			removeComments(file)	
+		elif fn is 3:
+			print("There are {} of code in {}".format(getSourceCodeLines(file),file))	
 	else:
 		print("File does not exist")	
 	go = input("Press Y to continue or anything else to exit:")
