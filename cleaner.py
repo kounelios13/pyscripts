@@ -80,4 +80,4 @@ def showAsApp():
 		go = input("Press Y to continue or anything else to exit:")
 		if not go =='Y':
 			break 	
-removeComments("sample.txt")			
+			
