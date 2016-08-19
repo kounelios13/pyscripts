@@ -63,19 +63,21 @@ def showMenu():
 	info+=" 2:Remove comments from file\n"
 	info+=" 3:Show number of source code lines(comments do not count)\n"
 	print(info)
-while True:
-	showMenu()
-	fn = int(input("Choose a number:"))	
-	file = input("Enter path of file(rel or absolute) followed by its name.\nE.g.: ../demo.txt\n")	
-	if evalFile(file):
-		if fn is 1:
-			removeEmptyLines(file)
-		elif fn is 2:
-			removeComments(file)	
-		elif fn is 3:
-			print("There are {} of code in {}".format(getSourceCodeLines(file),file))	
-	else:
-		print("File does not exist")	
-	go = input("Press Y to continue or anything else to exit:")
-	if not go =='Y':
-		break 	
+def showAsApp():
+	while True:
+		showMenu()
+		fn = int(input("Choose a number:"))	
+		file = input("Enter path of file(rel or absolute) followed by its name.\nE.g.: ../demo.txt\n")	
+		if evalFile(file):
+			if fn is 1:
+				removeEmptyLines(file)
+			elif fn is 2:
+				removeComments(file)	
+			elif fn is 3:
+				print("There are {} of code in {}".format(getSourceCodeLines(file),file))	
+		else:
+			print("File does not exist")	
+		go = input("Press Y to continue or anything else to exit:")
+		if not go =='Y':
+			break 	
+removeComments("sample.txt")			
