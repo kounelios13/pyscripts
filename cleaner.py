@@ -3,6 +3,8 @@ null = None
 true = True
 false = False
 defFile = open("cleaner.py",'r')
+def isEmptyLine(line):
+	return len(line.strip()) < 1 
 def checkfeed():
 	temp = [f+"\n" for f in os.listdir('.') if os.path.isfile(f)]
 	try:
@@ -15,7 +17,10 @@ def shrinkFiles():
 	checkfeed()
 	files = [file.strip() for file in open('feed.txt','r').readlines()]	
 	for file in files:
-		removeEmptyLines(file)
+		try:
+			removeEmptyLines(file)
+		except FileNotFoundError:
+			print("File "+file+" was not found")
 def isComment(line):
 	comments=["*","//","// ","*/","* ","/*","/**","#"," #","'''"]
 	ending=[" */","*/","**/","#"," #","'''"]
@@ -44,7 +49,7 @@ def removeComments(fileName):
 		output.close()
 		return
 	output = open(fileName,'w')	
-	output.writelines([line for line in lines if len(line.strip())> 0 and not isComment(line.strip())])
+	output.writelines([line for line in lines if not isEmptyLine(line) and not isComment(line.strip())])
 
 def getSourceCodeLines(file):
 	return len([l for l in open(file,'r').readlines() if not isComment(l.strip()) and len(l.strip())> 0])	
