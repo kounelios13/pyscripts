@@ -29,7 +29,8 @@ def removeEmptyLines(file):
 		return
 	out = open(file,'r+')
 	lines = out.readlines()
-	out.writelines([line for line in lines  if not isEmptyLine(line)])	
+	out.seek(0)
+	out.writelines([line for line in lines  if not isLineEmpty(line)])	
 	out.close()
 def removeComments(file):
 	if not fileExists(file):
@@ -40,6 +41,6 @@ def removeComments(file):
 		pythonExtensions.index(getFileExtension(file))
 	except ValueError:
 		isPython = False
-	f = open(f,'r+')
+	f = open(file,'r+')
 	lines = f.readlines()	
 	f.writelines([l for l in lines if not isComment(l,isPython)])

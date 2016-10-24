@@ -1,9 +1,16 @@
 Here is a text file with 
 
 many empty lines
-# yeap another useless line
+//# yeap another useless line
+
+/***
 
 
+*** Java
+
+
+
+***/
 
 
 and many comments
