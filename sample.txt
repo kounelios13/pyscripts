@@ -41,4 +41,151 @@ another line
 
 
 
+with spacesHere is a text file with 
+many empty lines
+//# yeap another useless line
+/***
+*** Java
+***/
+and many comments
+//What is this line for 
+/**
+* Seriously no idea
+* */
+another line
+with spacesHere is a text file with 
+many empty lines
+//# yeap another useless line
+/***
+*** Java
+***/
+and many comments
+//What is this line for 
+/**
+* Seriously no idea
+* */
+another line
+with spacesHere is a text file with 
+many empty lines
+//# yeap another useless line
+/***
+*** Java
+***/
+and many comments
+//What is this line for 
+/**
+* Seriously no idea
+* */
+another line
+with spacesHere is a text file with 
+
+many empty lines
+
+
+
+
+
+
+
+
+and many comments
+another line
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+with spacesHere is a text file with 
+many empty lines
+and many comments
+another line
+with spacesHere is a text file with 
+many empty lines
+and many comments
+another line
+with spacesHere is a text file with 
+many empty lines
+and many comments
+another line
+with spacesHere is a text file with 
+many empty lines
+//# yeap another useless line
+/***
+*** Java
+***/
+and many comments
+//What is this line for 
+/**
+* Seriously no idea
+* */
+another line
+with spacesHere is a text file with 
+many empty lines
+//# yeap another useless line
+/***
+*** Java
+***/
+and many comments
+//What is this line for 
+/**
+* Seriously no idea
+* */
+another line
+with spacesHere is a text file with 
+many empty lines
+//# yeap another useless line
+/***
+*** Java
+***/
+and many comments
+//What is this line for 
+/**
+* Seriously no idea
+* */
+another line
+with spacesHere is a text file with 
+many empty lines
+//# yeap another useless line
+/***
+*** Java
+***/
+and many comments
+//What is this line for 
+/**
+* Seriously no idea
+* */
+another line
+with spacesHere is a text file with 
+many empty lines
+and many comments
+another line
+with spacesHere is a text file with 
+many empty lines
+and many comments
+another line
+with spacesHere is a text file with 
+many empty lines
+and many comments
+another line
+with spacesHere is a text file with 
+many empty lines
+and many comments
+another line
 with spaces

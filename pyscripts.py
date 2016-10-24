@@ -1,5 +1,5 @@
 def isLineEmpty(line):
-	return len(line.strip())< 1
+	return len(line.strip()) < 1
 def isComment(line,isPythonFile = False):
 	comments=["*","//","// ","*/","* ","/*","/**","#"," #","'''"]
 	ending=[" */","*/","**/","#"," #","'''"]
@@ -27,10 +27,15 @@ def removeEmptyLines(file):
 	if not fileExists(file):
 		print ("{} does not exist ".format(file))
 		return
-	out = open(file,'r+')
+	out = open(file,'r')
 	lines = out.readlines()
-	out.seek(0)
-	out.writelines([line for line in lines  if not isLineEmpty(line)])	
+	out.close()
+	out = open(file,'w')
+	t=[]
+	for line in lines:
+		if not isLineEmpty(line):
+			t.append(line)
+	out.writelines(t)	
 	out.close()
 def removeComments(file):
 	if not fileExists(file):
@@ -41,6 +46,8 @@ def removeComments(file):
 		pythonExtensions.index(getFileExtension(file))
 	except ValueError:
 		isPython = False
-	f = open(file,'r+')
-	lines = f.readlines()	
+	f = open(file,'r')
+	lines = f.readlines()
+	f.close()
+	f = open(file,'w')	
 	f.writelines([l for l in lines if not isComment(l,isPython)])
