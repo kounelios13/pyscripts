@@ -1,6 +1,6 @@
-def isLineEmpty(line):
+def is_line_empty(line):
 	return len(line.strip()) < 1
-def isComment(line,isPythonFile = False):
+def is_comment(line,isPythonFile = False):
 	comments=["*","//","// ","*/","* ","/*","/**","#"," #","'''"]
 	ending=[" */","*/","**/","#"," #","'''"]
 	if isPythonFile == True:
@@ -13,41 +13,33 @@ def isComment(line,isPythonFile = False):
 		if line.endswith(i):
 			return True 	
 	return False
-def getFileExtension(file): 
+def get_file_extension(file): 
 	return file.split(".")[1]	
-def fileExists(file):
+def file_exists(file):
 	try:
 		f=open(file,'r')
 		f.close()
 	except FileNotFoundError:
 		return False
 	return True	
-def removeEmptyLines(file):
+def remove_empty_lines(file):
 	lines = []
-	if not fileExists(file):
+	if not file_exists(file):
 		print ("{} does not exist ".format(file))
 		return
-	out = open(file,'r')
-	lines = out.readlines()
-	out.close()
-	out = open(file,'w')
-	t=[]
-	for line in lines:
-		if not isLineEmpty(line):
-			t.append(line)
-	out.writelines(t)	
-	out.close()
-def removeComments(file):
-	if not fileExists(file):
-		raise FileNotFoundException("Requested file was not found")
+	with open(file,'r') as in_file:
+		lines = in_file.readlines()
+	with open(file,'w') as out:
+		out.writelines([line for line in lines if not is_line_empty(line)])
+def remove_comments(file):
 	pythonExtensions = ["py","py3","pxd","pyx"];
 	isPython = True
 	try:
-		pythonExtensions.index(getFileExtension(file))
+		pythonExtensions.index(get_file_extension(file))
 	except ValueError:
 		isPython = False
 	f = open(file,'r')
 	lines = f.readlines()
 	f.close()
 	f = open(file,'w')	
-	f.writelines([l for l in lines if not isComment(l,isPython)])
+	f.writelines([l for l in lines if not is_comment(l,isPython)])
