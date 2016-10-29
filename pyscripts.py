@@ -5,8 +5,8 @@ def is_comment(line,isPythonFile = False):
 	comments=["*","//","// ","*/","* ","/*","/**","#"," #","'''"]
 	ending=[" */","*/","**/","#"," #","'''"]
 	if isPythonFile == True:
-		comments.append("#"," #","'''")
-		ending.append("#"," #","'''")
+		comments.append("#"," #","'''",'"""')
+		ending.append("#"," #","'''",'"""')
 	for i in comments:
 		if line.startswith(i):
 			return True 
@@ -14,6 +14,17 @@ def is_comment(line,isPythonFile = False):
 		if line.endswith(i):
 			return True 	
 	return False
+def translate_hex_file(file):
+	''''''
+	translated = []
+	with open(file,'r') as f_in:
+		lines = f_in.readlines()	
+	for row in lines:
+		for fragment in row.split(" "):
+			translated.append(fragment+" ")
+	ext = file.split(".")[1]		
+	with open(file.split(".")[0]+"(translated)."+ext) as f_out:
+		f_out.writelines(translated)			
 class Pyscripts():
 	"""A class 	of static methods that help you do things with files"""
 	def __init__(self, arg):
