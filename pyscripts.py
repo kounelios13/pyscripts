@@ -15,9 +15,7 @@ def is_comment(line,isPythonFile = False):
 			return True 	
 	return False
 def inc(var,increment = 1):
-	global var
 	var +=increment
-
 class Pyscripts():
 	"""A class 	of static methods that help you do things with files"""
 	def __init__(self, arg):
@@ -28,7 +26,7 @@ class Pyscripts():
 		with open(file,'r') as f_in:
 			lines = f_in.readlines()
 		for line in lines:
-			if is_line_empty(line) and not is_comment(line):
+			if not is_line_empty(line) and not is_comment(line):
 				inc(counter)
 		return counter			
 	@staticmethod	
