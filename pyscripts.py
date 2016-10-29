@@ -14,7 +14,7 @@ def is_comment(line,isPythonFile = False):
 		if line.endswith(i):
 			return True 	
 	return False
-class pyscripts():
+class Pyscripts():
 	"""A class 	of static methods that help you do things with files"""
 	def __init__(self, arg):
 		self.arg = arg

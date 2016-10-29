@@ -1,4 +1,4 @@
-from pyscripts import pyscripts
+from pyscripts import Pyscripts as pyscripts
 def showMenu(file):
 	sel = int(input("Select 1 to remove empty lines 2 to remove comments 3 to do all of these things:\n"))
 	if sel == 3:
