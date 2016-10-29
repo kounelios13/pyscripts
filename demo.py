@@ -1,4 +1,4 @@
-import pyscripts
+from pyscripts import pyscripts
 def showMenu(file):
 	print("Select 1 to remove empty lines 2 to remove comments 3 to do all of these things:\n")
 	sel = int(input())
@@ -12,5 +12,6 @@ def showMenu(file):
 	else:
 		return
 filename = input("Give me a file name(with absolute or relative path):")
+#help(pyscripts)
 while True:
 	showMenu(filename)
