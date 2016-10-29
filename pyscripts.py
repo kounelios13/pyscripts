@@ -14,21 +14,23 @@ def is_comment(line,isPythonFile = False):
 		if line.endswith(i):
 			return True 	
 	return False
-def translate_hex_file(file):
-	''''''
-	translated = []
-	with open(file,'r') as f_in:
-		lines = f_in.readlines()	
-	for row in lines:
-		for fragment in row.split(" "):
-			translated.append(fragment+" ")
-	ext = file.split(".")[1]		
-	with open(file.split(".")[0]+"(translated)."+ext) as f_out:
-		f_out.writelines(translated)			
+def inc(var,increment = 1):
+	global var
+	var +=increment
+
 class Pyscripts():
 	"""A class 	of static methods that help you do things with files"""
 	def __init__(self, arg):
 		self.arg = arg
+	@staticmethod
+	def get_total_lines(file):
+		counter = 0
+		with open(file,'r') as f_in:
+			lines = f_in.readlines()
+		for line in lines:
+			if is_line_empty(line) and not is_comment(line):
+				inc(counter)
+		return counter			
 	@staticmethod	
 	def remove_comments(file):	
 		pythonExtensions = ["py","py3","pxd","pyx"];
