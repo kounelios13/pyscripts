@@ -1,5 +1,6 @@
 Here is a text file with 
-
+#python comment
+#more python
 many empty lines
 //# yeap another useless line
 
@@ -19,22 +20,6 @@ and many comments
 * Seriously no idea
 * */
 another line
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -90,25 +75,6 @@ many empty lines
 
 and many comments
 another line
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
